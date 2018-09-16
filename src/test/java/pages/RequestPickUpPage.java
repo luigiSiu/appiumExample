@@ -16,7 +16,7 @@ public class RequestPickUpPage extends BasePage {
   By addressInput = By
       .id("com.stuart.client.activities.AddressSearchActivity:id/search_address_input");
 
-  public RequestPickUpPage(AppiumDriver driver, WebDriverWait wait) {
+  public RequestPickUpPage(AndroidDriver driver, WebDriverWait wait) {
     super(driver, wait);
   }
 
@@ -34,7 +34,7 @@ public class RequestPickUpPage extends BasePage {
   public PickUpRequestDetailsPage searchAddress(String address) {
     Activity addressSearchActivity = new Activity(PACKAGE,
         "com.stuart.client.activities.AddressSearchActivity");
-    ((AndroidDriver<WebElement>) driver).currentActivity();
+    driver.startActivity(addressSearchActivity);
     driver.findElement(addressInput).sendKeys(address);
     return new PickUpRequestDetailsPage(driver, wait);
   }

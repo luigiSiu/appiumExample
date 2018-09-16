@@ -1,6 +1,7 @@
 package pages;
 
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -11,7 +12,7 @@ public class LoginPage extends BasePage {
   By pwdInput = By.id("login_password");
   By loginButton = By.id("login_button");
 
-  public LoginPage(AppiumDriver driver, WebDriverWait wait) {
+  public LoginPage(AndroidDriver driver, WebDriverWait wait) {
     super(driver, wait);
     waitForPageLoaded();
   }
