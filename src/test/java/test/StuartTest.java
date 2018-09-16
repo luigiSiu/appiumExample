@@ -2,17 +2,17 @@ package test;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.HomePage;
-import pages.LoginPage;
-import pages.RequestCourierPage;
+import screens.HomeScreen;
+import screens.LoginScreen;
+import screens.RequestCourierScreen;
 
 public class StuartTest extends BaseTest {
 
   @Test
-  public void testRequestCourierPage() {
-    LoginPage loginPage = new HomePage(driver, wait).accessLogin();
-    RequestCourierPage requestCourierPage = loginPage
+  public void testRequestCourierScreen() {
+    LoginScreen loginScreen = new HomeScreen(driver, wait).accessLogin();
+    RequestCourierScreen requestCourierScreen = loginScreen
         .login("stuartandroid@mailinator.com", "test1234");
-    Assert.assertTrue(requestCourierPage.isPageLoaded(), "TEST KO: Request cards are not present.");
+    Assert.assertTrue(requestCourierScreen.isScreenLoaded(), "TEST KO: Request cards are not present.");
   }
 }

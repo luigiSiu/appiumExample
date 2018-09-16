@@ -1,15 +1,15 @@
-package pages;
+package screens;
 
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class HomePage extends BasePage {
+public class HomeScreen extends BaseScreen {
 
   By loginButton = By.id("splash_login");
 
-  public HomePage(AndroidDriver driver, WebDriverWait wait) {
+  public HomeScreen(AndroidDriver driver, WebDriverWait wait) {
     super(driver, wait);
     waitForPageLoaded();
   }
@@ -19,8 +19,8 @@ public class HomePage extends BasePage {
         .until(ExpectedConditions.elementToBeClickable(loginButton));
   }
 
-  public LoginPage accessLogin() {
+  public LoginScreen accessLogin() {
     driver.findElement(loginButton).click();
-    return new LoginPage(driver, wait);
+    return new LoginScreen(driver, wait);
   }
 }
