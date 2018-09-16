@@ -1,6 +1,5 @@
 package pages;
 
-import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -24,10 +23,5 @@ public class RequestCourierPage extends BasePage {
   public boolean isPageLoaded() {
     return driver.findElements(requestPickupCard).size() > 0
         && driver.findElements(requestDropOffCard).size() > 0;
-  }
-
-  public RequestPickUpPage requestPickUp() {
-    driver.findElement(requestPickupCard).click();
-    return new RequestPickUpPage(driver, wait);
   }
 }
