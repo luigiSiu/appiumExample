@@ -7,8 +7,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class RequestCourierPage extends BasePage {
 
-  By requestPickupCard = By.id("com.stuart.client.beta:id/request_pickup_card");
-  By requestDropOffCard = By.id("com.stuart.client.beta:id/request_drop_off_card");
+  By requestPickupCard = By.id("request_pickup_card");
+  By requestDropOffCard = By.id("request_drop_off_card");
 
   public RequestCourierPage(AppiumDriver driver, WebDriverWait wait) {
     super(driver, wait);
@@ -23,5 +23,10 @@ public class RequestCourierPage extends BasePage {
   public boolean isPageLoaded() {
     return driver.findElements(requestPickupCard).size() > 0
         && driver.findElements(requestDropOffCard).size() > 0;
+  }
+
+  public RequestPickUpPage requestPickUp() {
+    driver.findElement(requestPickupCard).click();
+    return new RequestPickUpPage(driver, wait);
   }
 }

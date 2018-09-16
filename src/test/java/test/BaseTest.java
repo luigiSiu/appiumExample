@@ -1,6 +1,5 @@
 package test;
 
-import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
 import io.appium.java_client.service.local.AppiumServerHasNotBeenStartedLocallyException;
@@ -13,8 +12,9 @@ import org.testng.annotations.BeforeClass;
 
 public class BaseTest {
 
+  public static String PACKAGE = "com.stuart.client.beta";
   private static AppiumDriverLocalService service;
-  public AppiumDriver<WebElement> driver;
+  public AndroidDriver<WebElement> driver;
   public WebDriverWait wait;
 
   @BeforeClass
@@ -33,9 +33,9 @@ public class BaseTest {
     capabilities.setCapability("deviceName", "Android Emulator");
     capabilities.setCapability("app", app.getAbsolutePath());
     capabilities.setCapability("appActivity", "com.stuart.client.activities.PosActivity");
-    capabilities.setCapability("appPackage", "com.stuart.client.beta");
+    capabilities.setCapability("appPackage", PACKAGE);
 
-    driver = new AndroidDriver<>(service.getUrl(), capabilities);
+    driver = new AndroidDriver<WebElement>(service.getUrl(), capabilities);
   }
 
   @AfterClass

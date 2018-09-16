@@ -7,7 +7,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class HomePage extends BasePage {
 
-  By loginButton = By.id("com.stuart.client.beta:id/splash_login");
+  By loginButton = By.id("splash_login");
 
   public HomePage(AppiumDriver driver, WebDriverWait wait) {
     super(driver, wait);
